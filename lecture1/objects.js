@@ -1,0 +1,1 @@
+//hoe to console.log() of objectss

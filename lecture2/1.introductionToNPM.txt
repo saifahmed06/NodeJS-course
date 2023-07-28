@@ -1,0 +1,6 @@
+INTYRODUCTION TO NPM
+-------------------------------------------------
+=> NPM is the standard package manager for nodeJS
+=> as of sep 2022 it has announced 2.1 million packages listed in NPM registry
+=> NPM is the way of download and manage dependencies for both frontend and backend application using javaScript
+=> YARN and pnpm are the alternative of NPM

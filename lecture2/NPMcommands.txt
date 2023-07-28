@@ -1,0 +1,16 @@
+NPM COMMANDS
+-----------------
+=>npm init 
+=>npm install
+=>npm install <package_name>[-g, --save-dev, --no-save,--save-optional,--np-optional]
+=>npm install <package_name>@<version>
+=>npm update
+=>npm update<package_name >
+=>npm run <task-name>
+=>npm list
+=>npm view<package-name>version
+=>npm uninstall<package-name>
+=>npm help
+=>npm root -g
+=>npm view <package_name> versions
+
