@@ -1,0 +1,5 @@
+The REPL
+R =  READ  =>Read user input
+E =  EVAL  => evaluate user input
+P =  PRINT => print Output(Result)
+L =  LOOP  =>Wait for new input
