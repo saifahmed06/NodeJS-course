@@ -51,3 +51,31 @@
         }
     };
  person.greet();
+
+ const hobbies = ['sports','cooking'];
+for(let hobby of hobbies){
+    // console.log(hobby)
+}
+// console.log(hobbies.map(hobby=>'hobby: ' + hobby));
+// console.log(hobbies);
+
+// const copiedArray = hobbies.slice();
+// console.log(copiedArray);
+
+const copiedArray = [...hobbies];
+console.log(copiedArray)
+
+const copiedPerson = {...person}
+console.log(copiedPerson);
+
+// const toArray = (arg1,arg2,arg3)=>{
+//     return[arg1,arg2,arg3];
+
+// };
+// console.log(toArray(1,2,3,4));
+
+const toArray = (...args)=>{
+    return[args];
+
+};
+console.log(toArray(1,2,3,4));
