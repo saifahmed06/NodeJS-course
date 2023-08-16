@@ -44,7 +44,7 @@ http.createServer(function(req,res){
 //30.sending responses
 
 
-import http from 'http'
+//import http from 'http'
 
 // const server = http.createServer((req,res)=>{
 //     console.log(req.url,req.method ,req.headers)
@@ -66,32 +66,120 @@ import http from 'http'
 //we want to load a page where the user can enter some data which we then
 // store in a file on the server once it is sent. We can do this by first of all parsing the url. I'm storing it in a new constant
 
-import http from 'http'
+// import http from 'http'
+
+// const server = http.createServer((req,res)=>{
+//     const url = req.url;
+// if(url==='/'){
+//     res.write('<html>');
+// res.write('<head><title>Enter Message : </title><head>')
+// res.write('<body><form action="/message method="POST"><input type="text" name="message"><button type="Submit">Send</button></form></body>');
+// res.write('</html>');
+// return res.end();
+    
+// }
+
+// res.setHeader('Content-Type','text/html');
+// res.write('<html>');
+// res.write('<head><title>My first page</title><head>')
+// res.write('<body><h1>Hello from Node.js Server!</h1></body>');
+// res.write('</html>');
+// res.end();
+// });
+// server.listen(3000)
+
+/*
+//33.Redirecting Requests
+//I want to do two things, I want to redirect the user back to slash nothing,so not leave him on /message 
+//and I want to create a new file and store the message the user entered in it.
+import http from 'http';
+import * as fs from 'fs'// fs allows us to work with the file system
 
 const server = http.createServer((req,res)=>{
     const url = req.url;
+    const method = req.method;
 if(url==='/'){
     res.write('<html>');
-res.write('<head><title>Enter Message : </title><head>')
-res.write('<body><form><inpHello from Node.js Server!</form></body>');
-res.write('</html>');
-res.end();
+    res.write('<head><title>Enter Message : </title><head>')
+    res.write('<body><form action="/message method="POST"><input type="text" name="message"><button type="Submit">Send</button></form></body>');
+    res.write('</html>');
+return res.end();
     
+}
+//I want to be sure that we're not handling a get request but a post request here,
+if(url ==='/message' && method ==='POST'){
+    fs.writeFileSync('message.txt', 'DUMMY');
+    res.statusCode = 302; //Status code of 302 which stands for redirection
+    res.setHeader('Location', '/');
+   return res.end(); //return is mandotory or else it will keep going down and excute below lines of code
 }
 res.setHeader('Content-Type','text/html');
 res.write('<html>');
-res.write('<head><title>My first page</title><head>')
+res.write('<head><title>My first page</title><head>');
 res.write('<body><h1>Hello from Node.js Server!</h1></body>');
 res.write('</html>');
 res.end();
 });
 server.listen(3000)
+*/
+
+//34.Parsing Request Bodies
+
+// import http from 'http';
+// import * as fs from 'fs'
+// const server = http.createServer((req, res) => {
+//   const url = req.url;
+//   const method = req.method;
+//   if (url === '/') {
+//     res.write('<html>');
+//     res.write('<head><title>Enter Message</title><head>');
+//     res.write('<body><form action="/message" method="POST"><input type="text" name="message"><button type="submit">Send</button></form></body>');
+//     res.write('</html>');
+//     return res.end();
+//   }
+  
+//   if (url === '/message' && method === 'POST') {
+//     const body = [];
+//     req.on('data', (chunk) => {
+//       console.log(chunk);
+//       body.push(chunk);
+//     });
+//     req.on('end', () => {
+//       const parsedBody = Buffer.concat(body).toString();
+//       const message = parsedBody.split('=')[1];
+//       fs.writeFileSync('message.txt', message);
+//     });
+//     res.statusCode = 302;
+//     res.setHeader('Location', '/');
+//      return res.end();
+  
+//   }
+ 
+//   res.setHeader('Content-Type', 'text/html');
+//   res.write('<html>');
+//   res.write('<head><title>My First Page</title><head>');
+//   res.write('<body><h1>Hello from my Node.js Server!</h1></body>');
+//   res.write('</html>');
+//   res.end();
+
+// });
+// // });
+
+// server.listen(3000);
+// server.listen(3000)
 
 
 
 
 
+//38.Using the node modulus system
+import http from 'http'; 
 
+import routes from './routes.js'
+console.log(routes.someText)
+const server = http.createServer(routes.handler)
+ 
+server.listen(3000);
 /*
 //Modern JS methhod
 import http from 'http'
